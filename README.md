@@ -1,7 +1,7 @@
 # Disaster Tweet Classification
 
 ## Overview
-This repository contains my submission for a machine learning competition aimed at classifying tweets as either related to real disasters or not. The goal of this competition was to build a model capable of distinguishing between tweets that announce real emergencies and those that do not.
+This repository contains my submission for a [Kaggle machine learning competition](https://www.kaggle.com/competitions/nlp-getting-started) aimed at classifying tweets as either related to real disasters or not. The goal of this competition was to build a model capable of distinguishing between tweets that announce real emergencies and those that do not.
 
 ## Problem Statement
 Twitter has become an essential communication platform during emergencies, allowing people to share real-time updates on disasters. However, not every tweet mentioning a disaster-related term is actually about an emergency. Disaster relief organizations and news agencies require an automated way to filter through tweets and identify real disaster-related messages.
