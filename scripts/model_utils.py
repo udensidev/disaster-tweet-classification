@@ -2,23 +2,32 @@ import pandas as pd
 from sklearn.naive_bayes import BernoulliNB
 from sklearn.metrics import accuracy_score
 
-def train_model(X_train, y_train, X_val, y_val):
+def train_model(X_train, y_train):
     """
-    Train and evaluate a Bernoulli Naive Bayes model.
+    Train a Bernoulli Naive Bayes model.
     Args:
         X_train: sparse matrix, training feature vectors
         y_train: array-like, training labels
+    Returns:
+        model: trained Bernoulli Naive Bayes model
+    """
+    model = BernoulliNB().fit(X_train, y_train)
+    return model
+
+def evaluate_model(model, X_val, y_val):
+    """
+    Evaluate a trained model on a validation set.
+    Args:
+        model: trained machine learning model
         X_val: sparse matrix, validation feature vectors
         y_val: array-like, validation labels
     Returns:
-        model: trained Bernoulli Naive Bayes model
         accuracy: float, validation accuracy
     """
-    model = BernoulliNB().fit(X_train, y_train)
     pred_val = model.predict(X_val)
     accuracy = accuracy_score(y_val, pred_val)
-    print(f"Model trained. Validation accuracy: {accuracy}")
-    return model, accuracy
+    print(f"Validation accuracy: {accuracy}")
+    return accuracy
 
 def make_predictions(model, X_test, test_ids, output_file='submission.csv'):
     """
