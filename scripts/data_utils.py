@@ -1,3 +1,4 @@
+import pandas as pd
 import re
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
@@ -21,6 +22,17 @@ def clean_text(text):
     stemmer = PorterStemmer()
     words = [stemmer.stem(word) for word in words]
     return ' '.join(words)
+
+def load_data():
+    """
+    Load training and test data from CSV files
+    Returns:
+        train_df: pandas DataFrame containing training data
+        test_df: pandas DataFrame containing test data
+    """
+    train_df = pd.read_csv('data/raw/train.csv')
+    test_df = pd.read_csv('data/raw/test.csv')
+    return train_df, test_df
 
 def vectorize_text(train_text, val_text, test_text, max_features=5000, ngram_range=(1, 2)):
     """

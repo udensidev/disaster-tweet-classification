@@ -26,10 +26,11 @@ def evaluate_model(model, X_val, y_val):
     """
     pred_val = model.predict(X_val)
     accuracy = accuracy_score(y_val, pred_val)
-    print(f"Validation accuracy: {accuracy}")
-    return accuracy
+    print(f"\nValidation accuracy: {accuracy:.4f}")
+   
+    
 
-def make_predictions(model, X_test, test_ids, output_file='submission.csv'):
+def make_predictions(model, X_test, test_ids, output_path='data/processed/submission.csv', file_name='submission.csv'):
     """
     Make predictions with a trained model and save them to a CSV file.
     Args:
@@ -45,5 +46,5 @@ def make_predictions(model, X_test, test_ids, output_file='submission.csv'):
     submission = pd.DataFrame({'id': test_ids, 'target': pred_test})
     
     # Save the DataFrame to a CSV file
-    submission.to_csv(output_file, index=False)
-    print(f"\nPredictions made and saved to file: {output_file}")
+    submission.to_csv(output_path, index=False)
+    print(f"\nPredictions made and saved to file: {file_name}")
